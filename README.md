@@ -45,5 +45,5 @@ failover.sh -f terraform.tfstate
 
 ## Failover with manual settings
 ```
-failover.sh -c E1M6O00B4Y4FZB -u https://d1593sj4rzbbcp.cloudfront.net/ -i E3OWF7EI8B3BBU -f failover-website20181206082214035700000002.s3.ap-southeast-2.amazonaws.com
+failover.sh -c E1M6O00B4YABCD -u https://d1593sj4rabcde.cloudfront.net/ -i E3OWF71234ABCD -f failover-website20181206082214035709999999.s3.ap-southeast-2.amazonaws.com
 ```
