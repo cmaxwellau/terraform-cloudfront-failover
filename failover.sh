@@ -17,6 +17,16 @@
 # Bailout on error
 set -e
 
+function usage() {
+  cat << EOF
+
+Usage: 
+`basename ${0}` -f <terraform state file>
+`basename ${0}` -c <cf distribution id> -u <website url> -i <origin identity> -f <failover bucket fqdn>
+EOF
+}
+
+
 which aws > /dev/null
 if [[ $? -gt 0 ]] ; then 
   echo "AWS CLI not found - please go to https://aws.amazon.com/cli/ for more information on how to install it"
@@ -56,6 +66,7 @@ while (( "$#" )); do
       ;;
     -*|--*=) # unsupported flags
       echo "Error: Unsupported flag $1" >&2
+      usage
       exit 1
       ;;
     *) # preserve positional arguments
@@ -64,7 +75,6 @@ while (( "$#" )); do
       ;;
   esac
 done
-
 
 # Dynamically extract variables from terraform state file.
 if [[ $TFARG && (-f ${TFARG}) ]] ; then
@@ -79,8 +89,8 @@ elif [[ $CFIDARG && $CFURLARG && $FIDARG && $FQDNARG ]] ; then
   FAILOVER_IDENTITY=$FIDARG
   FAILOVER_BUCKET_FQDN=$FQDNARG
 else
-  echo "Usage: ${0}"
-  exit
+  usage
+  exit 1
 fi
 
 # Explicitly declared variables
