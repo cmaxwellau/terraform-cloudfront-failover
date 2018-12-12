@@ -1,0 +1,128 @@
+{
+  "Origins": {
+    "Items": [
+      {
+        "DomainName": "",
+        "Id": "failover",
+        "OriginPath": "",
+        "S3OriginConfig": {
+          "OriginAccessIdentity": ""
+        },
+        "CustomHeaders": {
+            "Quantity": 0
+        }
+      }
+    ],
+    "Quantity": 1
+  },
+  "DefaultRootObject": "index.html",
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "failover",
+    "TrustedSigners": {
+      "Enabled": false,
+      "Quantity": 0
+    },
+    "LambdaFunctionAssociations": {
+        "Quantity": 0
+    }, 
+    "FieldLevelEncryptionId": "", 
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "ForwardedValues": {
+      "Headers": {
+        "Quantity": 0
+      },
+      "Cookies": {
+        "Forward": "none"
+      },
+      "QueryStringCacheKeys": {
+        "Quantity": 0
+      },
+      "QueryString": false
+    },
+    "MaxTTL": 1,
+    "SmoothStreaming": false,
+    "DefaultTTL": 1,
+    "MinTTL": 1,
+    "AllowedMethods": {
+      "Items": [
+        "HEAD",
+        "GET"
+      ],
+      "Quantity": 2,
+      "CachedMethods": {
+        "Items": [
+          "HEAD",
+          "GET"
+        ],
+        "Quantity": 2
+      }
+    },
+    "Compress": true
+  },
+  "CustomErrorResponses": {
+    "Items": [
+      {
+        "ErrorCode": 400,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "400",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 403,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "403",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 404,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "404",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 405,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "405",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 414,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "414",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 500,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "500",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 501,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "501",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 502,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "502",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 503,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "503",
+        "ErrorCachingMinTTL": 1
+      },
+      {
+        "ErrorCode": 504,
+        "ResponsePagePath": "/index.html",
+        "ResponseCode": "504",
+        "ErrorCachingMinTTL": 1
+      }
+    ],
+    "Quantity": 10
+  },
+  "HttpVersion": "http2"
+}
